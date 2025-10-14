@@ -5,7 +5,9 @@ VisualStudioVersion = 17.14.36310.24 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISPSystem", "ISPSystem.csproj", "{62542ADB-0426-44B5-BB8A-BABED06B7E3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISPSystem.DataAccess", "..\ISPSystem.DataAccess\ISPSystem.DataAccess.csproj", "{7389F39E-9580-4B63-B1AE-CD2D6FCA2F68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISPSystem.Domain", "..\ISPSystem.DataAccess\ISPSystem.Domain.csproj", "{7389F39E-9580-4B63-B1AE-CD2D6FCA2F68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISPSystem.Data", "..\ISPSystem.Data\ISPSystem.Data.csproj", "{4BA93E36-05CD-4DE6-9366-5C27066445D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7389F39E-9580-4B63-B1AE-CD2D6FCA2F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7389F39E-9580-4B63-B1AE-CD2D6FCA2F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7389F39E-9580-4B63-B1AE-CD2D6FCA2F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BA93E36-05CD-4DE6-9366-5C27066445D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA93E36-05CD-4DE6-9366-5C27066445D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA93E36-05CD-4DE6-9366-5C27066445D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA93E36-05CD-4DE6-9366-5C27066445D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
