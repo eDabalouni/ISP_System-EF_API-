@@ -1,3 +1,4 @@
+
 ﻿using ISPSystem.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
@@ -21,6 +22,7 @@ namespace ISPSystem.Data
                 Microsoft.Extensions.Logging.LogLevel.Debug
                 );
         }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,5 +48,6 @@ namespace ISPSystem.Data
 
                 });
         }
+
     }
 }

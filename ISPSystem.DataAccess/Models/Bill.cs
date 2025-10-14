@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ISPSystem.Domain.Models
+
 {
     public class Bill
     {
@@ -13,15 +15,18 @@ namespace ISPSystem.Domain.Models
         public double TotalAmount { get; set; }
         public enum PayementStatus { Checked, Unchecked }
         public PayementStatus Status { get; set; }
+
         public bool IsDeleted { get; set; } = false;
+
 
         public Customer Customer { get; set; }//Navigation Property
 
         //One to Many Relationship between customer and Bill
         public int CustomerId { get; set; }
 
+
         //One to one relationship between payment and bill
         public Payment Payment { get; set; }
-
+ main
     }
 }

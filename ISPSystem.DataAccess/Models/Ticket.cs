@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ISPSystem.Domain.Models
+
 {
     public class Ticket
     {
@@ -12,6 +14,7 @@ namespace ISPSystem.Domain.Models
         public string Name { get; set; }
         public enum TicketStatus { New, UnderWorking, Closed }
         public TicketStatus Status { get; set; }
+
         public bool IsDeleted { get; set; } = false;
 
 
