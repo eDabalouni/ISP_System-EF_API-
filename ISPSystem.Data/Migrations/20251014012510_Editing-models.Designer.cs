@@ -4,6 +4,7 @@ using ISPSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ISPSystem.Data.Migrations
 {
     [DbContext(typeof(ISPSystemContext))]
-    partial class ISPSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20251014012510_Editing-models")]
+    partial class Editingmodels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,9 +25,7 @@ namespace ISPSystem.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-
             modelBuilder.Entity("ISPSystem.Domain.Models.Bill", b =>
-
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,9 +52,7 @@ namespace ISPSystem.Data.Migrations
                     b.ToTable("Bills");
                 });
 
-
             modelBuilder.Entity("ISPSystem.Domain.Models.Customer", b =>
-
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -74,9 +73,7 @@ namespace ISPSystem.Data.Migrations
                     b.ToTable("Customers");
                 });
 
-
             modelBuilder.Entity("ISPSystem.Domain.Models.Hardware", b =>
-
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -108,16 +105,13 @@ namespace ISPSystem.Data.Migrations
                     b.ToTable("Hardwares");
                 });
 
-
             modelBuilder.Entity("ISPSystem.Domain.Models.Payment", b =>
-
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
 
                     b.Property<int>("BillId")
                         .HasColumnType("int");
@@ -138,7 +132,6 @@ namespace ISPSystem.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
@@ -153,19 +146,16 @@ namespace ISPSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-
                     b.ToTable("ServicePlans");
                 });
 
             modelBuilder.Entity("ISPSystem.Domain.Models.Subscribing", b =>
-
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
 
                     b.Property<int>("CustomersId")
                         .HasColumnType("int");
@@ -177,14 +167,12 @@ namespace ISPSystem.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("ServicePlansId")
-
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
 
                     b.HasIndex("CustomersId");
 
@@ -194,7 +182,6 @@ namespace ISPSystem.Data.Migrations
                 });
 
             modelBuilder.Entity("ISPSystem.Domain.Models.Ticket", b =>
-
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -219,11 +206,9 @@ namespace ISPSystem.Data.Migrations
                     b.ToTable("Tickets");
                 });
 
-
             modelBuilder.Entity("ISPSystem.Domain.Models.Bill", b =>
                 {
                     b.HasOne("ISPSystem.Domain.Models.Customer", "Customer")
-
                         .WithMany("Bills")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -232,11 +217,9 @@ namespace ISPSystem.Data.Migrations
                     b.Navigation("Customer");
                 });
 
-
             modelBuilder.Entity("ISPSystem.Domain.Models.Hardware", b =>
                 {
                     b.HasOne("ISPSystem.Domain.Models.Customer", "Customer")
-
                         .WithMany("Hardwares")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -244,7 +227,6 @@ namespace ISPSystem.Data.Migrations
 
                     b.Navigation("Customer");
                 });
-
 
             modelBuilder.Entity("ISPSystem.Domain.Models.Payment", b =>
                 {
@@ -273,7 +255,6 @@ namespace ISPSystem.Data.Migrations
             modelBuilder.Entity("ISPSystem.Domain.Models.Ticket", b =>
                 {
                     b.HasOne("ISPSystem.Domain.Models.Customer", "Customer")
-
                         .WithMany("Tickets")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -282,7 +263,6 @@ namespace ISPSystem.Data.Migrations
                     b.Navigation("Customer");
                 });
 
-
             modelBuilder.Entity("ISPSystem.Domain.Models.Bill", b =>
                 {
                     b.Navigation("Payment")
@@ -290,12 +270,10 @@ namespace ISPSystem.Data.Migrations
                 });
 
             modelBuilder.Entity("ISPSystem.Domain.Models.Customer", b =>
-
                 {
                     b.Navigation("Bills");
 
                     b.Navigation("Hardwares");
-
 
                     b.Navigation("Tickets");
                 });

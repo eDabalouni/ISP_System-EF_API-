@@ -4,22 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace ISPSystem.Domain.Models
+namespace ISPSystem.Data.DTOs
 {
-    //Breaking table between customer and servicePlan
-
-    public class Subscribing
+    public class SubscribingDTO
     {
-        public int Id { get; set; }
         public enum SubscribingStatus { Active, Stopped, Deleted }
         public SubscribingStatus Status { get; set; }
-
         public DateTime DeliveredAt { get; set; }
         public DateTime RetrievedAt { get; set; }
-        public bool IsDeleted { get; set; } = false;
-
-
-
     }
 }

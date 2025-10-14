@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ISP_System.Models
+
+namespace ISPSystem.Domain.Models
+
 {
     public class ServicePlan
     {
@@ -15,12 +17,12 @@ namespace ISP_System.Models
         public enum PlanStatus { Active, Inactive }
         public PlanStatus Status { get; set; }
 
-        public Customer Customer { get; set; }//Navigation Property
+        public bool IsDeleted { get; set; } = false;
 
-        //One to Many Relationship between customer and ServicePlan
-        public int CustomerId { get; set; }
 
-        //One to Many Relationship between servicePlan and subscribing
-        public List<Subscribing> Subscribings { get; set; }
+
+        //Many to Many Relationship between servicePlan and customer
+        public List<Customer> Customers { get; set; }
+
     }
 }

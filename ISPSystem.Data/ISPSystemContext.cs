@@ -1,5 +1,7 @@
-﻿using ISP_System.Models;
+
+﻿using ISPSystem.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace ISPSystem.Data
 {
@@ -20,5 +22,32 @@ namespace ISPSystem.Data
                 Microsoft.Extensions.Logging.LogLevel.Debug
                 );
         }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Adding join table
+            modelBuilder.Entity<Customer>()
+                .HasMany(c => c.ServicePlans)
+                .WithMany(s => s.Customers)
+                .UsingEntity<Subscribing>();
+
+            //Seeding data
+            modelBuilder.Entity<ServicePlan>().HasData(
+                new ServicePlan { Id = 1, Speed = 500, Size = 1, Price = 349.33, Status = ServicePlan.PlanStatus.Active },
+                new ServicePlan { Id = 2, Speed = 400, Size = 4, Price = 667.33, Status = ServicePlan.PlanStatus.Inactive },
+                new ServicePlan { Id = 3, Speed = 300, Size = 3, Price = 593, Status = ServicePlan.PlanStatus.Active }
+                );
+
+            modelBuilder.Entity<Customer>().HasData(
+                new Customer
+                {
+                    Id = 1,
+                    Name = "elaf",
+                    Email = "elafdabalouni@gmail.com",
+
+                });
+        }
+
     }
 }
